@@ -7,7 +7,7 @@
     android:background="@drawable/bakgrunn">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/kont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kontakter"
@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.064" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/nykontakt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="110dp"
@@ -34,10 +34,11 @@
         app:layout_constraintVertical_bias="0.912" />
 
     <ListView
+        android:id="@+id/kontaktliste"
         android:layout_width="365dp"
         android:layout_height="445dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/kont" />
 </androidx.constraintlayout.widget.ConstraintLayout>
