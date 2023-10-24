@@ -32,7 +32,6 @@ public class NykontaktActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nykontakt_activity);
-        //
 
         //Til å åpne SQLite
         dataKilde = new AvtaleAppDataKilde(this);
