@@ -26,9 +26,10 @@
         android:text="Opprett avtale"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTelefonnummer"
-        app:layout_constraintVertical_bias="0.527" />
+        app:layout_constraintVertical_bias="0.791" />
 
     <EditText
         android:id="@+id/editTextAvtaleNavn"

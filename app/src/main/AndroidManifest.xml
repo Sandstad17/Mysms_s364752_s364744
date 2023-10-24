@@ -21,6 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".KontakterActivity"/>
+        <activity android:name=".NyavtaleActivity"/>
+        <activity android:name=".NykontaktActivity"/>
+        <activity android:name=".PrefferanseActivity"/>
     </application>
 
 </manifest>
