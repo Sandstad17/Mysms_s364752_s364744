@@ -22,6 +22,7 @@ public class NykontaktActivity extends AppCompatActivity {
     private ArrayAdapter<Kontakt> kontaktArrayAdapter;
     private List<Kontakt> kontakter;
     private EditText fornavnEditText;
+
     private EditText etternavnEditText;
     private EditText telefonnummerEditText;
     private ListView kontaktListView;

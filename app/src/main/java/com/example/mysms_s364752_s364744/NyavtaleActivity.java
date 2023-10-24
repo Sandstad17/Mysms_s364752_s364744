@@ -48,6 +48,9 @@ public class NyavtaleActivity extends AppCompatActivity {
         tidEditText = findViewById(R.id.editTextTid);
         nummerEditText = findViewById(R.id.editTextTelefonnummer);
 
+        avtaler = dataKilde.finnAlleAvtaler();
+        avtaleArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, avtaler);
+
 
         Button leggtilButton = findViewById(R.id.leggTilAvtale);
         leggtilButton.setOnClickListener(new View.OnClickListener() {
@@ -70,8 +73,20 @@ public class NyavtaleActivity extends AppCompatActivity {
             }
         });
 
-
     }
-
+    @Override
+    protected void onResume() {
+        try {
+            dataKilde.open();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        super.onResume();
+    }
+    @Override
+    protected void onPause() {
+        dataKilde.close();
+        super.onPause();
+    }
 
 }
