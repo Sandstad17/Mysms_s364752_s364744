@@ -67,5 +67,18 @@ public class MainActivity extends AppCompatActivity {
         avtaleArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,avtaler);
         avtalelista.setAdapter(avtaleArrayAdapter);
     }
-
+    @Override
+    protected void onResume() {
+        try {
+            dataKilde.open();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        super.onResume();
+    }
+    @Override
+    protected void onPause() {
+        dataKilde.close();
+        super.onPause();
+    }
 }
