@@ -1,5 +1,6 @@
 package com.example.mysms_s364752_s364744;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -44,11 +45,11 @@ public class NykontaktActivity extends AppCompatActivity {
         fornavnEditText = findViewById(R.id.editTextText);
         etternavnEditText = findViewById(R.id.editTextText2);
         telefonnummerEditText = findViewById(R.id.editTextPhone);
-        kontaktliste = findViewById(R.id.kontaktliste);
+        ListView kontaktlista = findViewById(R.id.kontaktliste);
 
         kontakter = dataKilde.finnAlleKontakter();
         kontaktArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,kontakter);
-
+        kontaktlista.setAdapter(kontaktArrayAdapter);
 
 
 
@@ -68,6 +69,12 @@ public class NykontaktActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent=new Intent(this,KontakterActivity.class);
+        startActivity(intent);
     }
 
     @Override
