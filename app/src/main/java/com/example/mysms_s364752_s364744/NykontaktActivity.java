@@ -45,11 +45,9 @@ public class NykontaktActivity extends AppCompatActivity {
         fornavnEditText = findViewById(R.id.editTextText);
         etternavnEditText = findViewById(R.id.editTextText2);
         telefonnummerEditText = findViewById(R.id.editTextPhone);
-        ListView kontaktlista = findViewById(R.id.kontaktliste);
 
         kontakter = dataKilde.finnAlleKontakter();
         kontaktArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,kontakter);
-        kontaktlista.setAdapter(kontaktArrayAdapter);
 
 
 
@@ -69,12 +67,6 @@ public class NykontaktActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    @Override
-    public void onBackPressed(){
-        Intent intent=new Intent(this,KontakterActivity.class);
-        startActivity(intent);
     }
 
     @Override

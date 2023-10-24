@@ -45,6 +45,7 @@ public class KontakterActivity extends AppCompatActivity {
         kontaktArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,kontakter);
         kontaktlista.setAdapter(kontaktArrayAdapter);
     }
+
     @Override
     protected void onResume() {
         try {
