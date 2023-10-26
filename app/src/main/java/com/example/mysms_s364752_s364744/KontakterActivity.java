@@ -6,6 +6,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import androidx.annotation.NonNull;
+import java.lang.Override;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -47,7 +52,34 @@ public class KontakterActivity extends AppCompatActivity {
         kontaktlista.setAdapter(kontaktArrayAdapter);
          */
 
-        
+        ListView kontaktlista = findViewById(R.id.kontaktliste);
+
+        kontakter = dataKilde.finnAlleKontakter();
+
+        kontaktArrayAdapter = new ArrayAdapter<Kontakt>(this, R.layout.kontakt_liste, kontakter) {
+            @NonNull
+            @Override
+            public View getView(int position, @NonNull View convertView, @NonNull ViewGroup parent) {
+                if (convertView == null) {
+                    convertView = getLayoutInflater().inflate(R.layout.kontakt_liste, parent, false);
+                }
+
+                // Set the text for both the name and phone number
+                Kontakt kontakt = getItem(position);
+                if (kontakt != null) {
+                    TextView kontaktFornavn = convertView.findViewById(R.id.fornavnKontaktListe);
+                    TextView kontaktEtternavn = convertView.findViewById(R.id.etternavnKontaktListe);
+                    TextView kontaktTelefon = convertView.findViewById(R.id.telefonnummerKontaktListe);
+                    kontaktFornavn.setText(kontakt.getFornavn());
+                    kontaktEtternavn.setText(kontakt.getEtternavn());
+                    kontaktTelefon.setText(kontakt.getTelefonnummer());
+                }
+
+                return convertView;
+            }
+        };
+
+        kontaktlista.setAdapter(kontaktArrayAdapter);
     }
 
     @Override
