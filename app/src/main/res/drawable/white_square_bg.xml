@@ -3,7 +3,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="@color/white" /> <!-- Background color (blue) -->
     <stroke
-        android:width="4dp"
-    android:color="@color/white" />    <!-- Border color (blue) -->
-    <corners android:radius="8dp" /> <!-- Rounded corners radius -->
+        android:width="3dp"
+    android:color="@color/gray" />    <!-- Border color (blue) -->
+    <corners android:radius="10dp" /> <!-- Rounded corners radius -->
 </shape>
