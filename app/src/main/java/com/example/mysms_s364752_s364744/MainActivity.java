@@ -113,8 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show(); // Permission granted, you can now send SMS
         }
         else {
-            Toast.makeText( this, "SMS tillatelse ikke gitt. Du kan ikke sende SMS.",
-                        Toast.LENGTH_SHORT
+            Toast.makeText( this, "SMS tillatelse ikke gitt. Du kan ikke sende SMS.", Toast.LENGTH_SHORT
             ).show();
             }
         }

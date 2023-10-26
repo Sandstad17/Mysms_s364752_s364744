@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -64,6 +65,8 @@ public class NykontaktActivity extends AppCompatActivity {
                     fornavnEditText.setText("");
                     etternavnEditText.setText("");
                     telefonnummerEditText.setText("");
+
+                    Toast.makeText(getApplicationContext(), "Kontakt lagt til", Toast.LENGTH_SHORT).show();
                 }
             }
         });
