@@ -1,14 +1,20 @@
 package com.example.mysms_s364752_s364744;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -19,11 +25,24 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<Avtale> avtaleArrayAdapter;
     private List<Avtale> avtaler;
 
+    private static final int SEND_SMS_PERMISSION_REQUEST_CODE = 1;
+    private EditText telefon;
+    private EditText melding;
+    private Button send;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Sjekker status på om tillatelser er gitt hvis ikke kommer det dialog med spørsmål
+        if (ContextCompat.checkSelfPermission(this,
+                android.Manifest.permission.SEND_SMS)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new
+                            String[]{android.Manifest.permission.SEND_SMS},
+                    SEND_SMS_PERMISSION_REQUEST_CODE);
+        }
 
         Button kontakter = findViewById(R.id.kontakter);
         Intent kontaktliste = new Intent(this, KontakterActivity.class);
@@ -64,9 +83,10 @@ public class MainActivity extends AppCompatActivity {
         ListView avtalelista = findViewById(R.id.avtaleliste);
 
         avtaler = dataKilde.finnAlleAvtaler();
-        avtaleArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,avtaler);
+        avtaleArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, avtaler);
         avtalelista.setAdapter(avtaleArrayAdapter);
     }
+
     @Override
     protected void onResume() {
         try {
@@ -76,9 +96,27 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onResume();
     }
+
     @Override
     protected void onPause() {
         dataKilde.close();
         super.onPause();
+    }
+
+    //popup boks sjekker om tillatese er gitt og sier da ifra om at du kan sende sms
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode ==SEND_SMS_PERMISSION_REQUEST_CODE) {
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText( this, "SMS tillatelse gitt.",
+                    Toast.LENGTH_SHORT).show(); // Permission granted, you can now send SMS
+        }
+        else {
+            Toast.makeText( this, "SMS tillatelse ikke gitt. Du kan ikke sende SMS.",
+                        Toast.LENGTH_SHORT
+            ).show();
+            }
+        }
     }
 }
