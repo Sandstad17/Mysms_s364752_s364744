@@ -8,13 +8,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="313dp"
-        android:layout_height="571dp"
+        android:layout_width="322dp"
+        android:layout_height="674dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.637"
         app:srcCompat="@drawable/white_square_bg" />
 
     <TextView
