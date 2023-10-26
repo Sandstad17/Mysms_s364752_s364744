@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     android:background="@drawable/bakgrunn">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="326dp"
+        android:layout_height="751dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.375"
+        app:srcCompat="@drawable/white_square_bg" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -29,7 +41,21 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTelefonnummer"
-        app:layout_constraintVertical_bias="0.791" />
+        app:layout_constraintVertical_bias="0.464" />
+
+    <EditText
+        android:id="@+id/editTextTelefonnummer"
+        android:layout_width="250dp"
+        android:layout_height="57dp"
+        android:ems="10"
+        android:hint="hei"
+        android:inputType="phone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTid"
+        app:layout_constraintVertical_bias="0.155" />
 
     <EditText
         android:id="@+id/editTextAvtaleNavn"
@@ -41,37 +67,9 @@
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/editTextTelefonnummer"
-        android:layout_width="250dp"
-        android:layout_height="57dp"
-        android:ems="10"
-        android:hint="hei"
-        android:inputType="phone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTid"
-        app:layout_constraintVertical_bias="0.05" />
-
-    <EditText
-        android:id="@+id/editTextSted"
-        android:layout_width="250dp"
-        android:layout_height="57dp"
-        android:ems="10"
-        android:hint="Sted"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAvtaleNavn"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
@@ -83,10 +81,10 @@
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextSted"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintVertical_bias="0.082" />
 
     <EditText
         android:id="@+id/editTextTid"
@@ -97,9 +95,23 @@
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextDato"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintVertical_bias="0.115" />
+
+    <EditText
+        android:id="@+id/editTextSted"
+        android:layout_width="250dp"
+        android:layout_height="57dp"
+        android:ems="10"
+        android:hint="Sted"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAvtaleNavn"
+        app:layout_constraintVertical_bias="0.073" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
