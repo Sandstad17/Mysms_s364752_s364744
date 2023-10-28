@@ -52,7 +52,6 @@ public class NyavtaleActivity extends AppCompatActivity {
         avtaler = dataKilde.finnAlleAvtaler();
         avtaleArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, avtaler);
 
-
         Button leggtilButton = findViewById(R.id.leggTilAvtale);
         leggtilButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,9 +61,8 @@ public class NyavtaleActivity extends AppCompatActivity {
                 String sted = stedEditText.getText().toString();
                 String dato = datoEditText.getText().toString();
                 String tid = tidEditText.getText().toString();
-                int nummer = Integer.parseInt(nummerEditText.getText().toString());
-                if (!avtaleNavn.isEmpty() && !sted.isEmpty() && !tid.isEmpty()) {
-                    Avtale avtale = dataKilde.leggInnAvtale(avtaleNavn, nummer, sted, dato, tid);
+                if (!avtaleNavn.isEmpty() && !telefonnummer.isEmpty() && !sted.isEmpty() && !dato.isEmpty() && !tid.isEmpty()) {
+                    Avtale avtale = dataKilde.leggInnAvtale(avtaleNavn, telefonnummer, sted, dato, tid);
                     avtaleArrayAdapter.add(avtale);
                     avtaleNavnEditText.setText("");
                     stedEditText.setText("");

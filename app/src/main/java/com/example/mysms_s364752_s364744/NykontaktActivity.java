@@ -60,7 +60,7 @@ public class NykontaktActivity extends AppCompatActivity {
                 String etternavn = etternavnEditText.getText().toString();
                 String telefonnummer = telefonnummerEditText.getText().toString();
                 if (!fornavn.isEmpty() && !etternavn.isEmpty() && !telefonnummer.isEmpty()) {
-                    Kontakt kontakt = dataKilde.leggInnKontakt(fornavn, etternavn, Integer.parseInt(telefonnummer));
+                    Kontakt kontakt = dataKilde.leggInnKontakt(fornavn, etternavn, telefonnummer);
                     kontaktArrayAdapter.add(kontakt);
                     fornavnEditText.setText("");
                     etternavnEditText.setText("");

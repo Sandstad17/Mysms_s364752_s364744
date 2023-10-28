@@ -30,7 +30,7 @@ public class AvtaleAppDataKilde {
     }
 
     //Kan hende vi må ta en titt på parameterene, er kanskje kun et parameter som skal inn
-    public Kontakt leggInnKontakt(String fornavn, String etternavn, int telefonnummer) {
+    public Kontakt leggInnKontakt(String fornavn, String etternavn, String telefonnummer) {
         ContentValues values = new ContentValues();
 
         values.put(DatabaseHjelper.KOLONNE_FORNAVN, fornavn);
@@ -48,14 +48,14 @@ public class AvtaleAppDataKilde {
     }
 
     //Kan hende vi må ta en titt på parameterene, er kanskje kun et parameter som skal inn
-    public Avtale leggInnAvtale(String navnAvtale, int telefonnummer, String sted, LocalDate dato, LocalTime tid) {
+    public Avtale leggInnAvtale(String navnAvtale, String telefonnummer, String sted, String dato, String tid) {
         ContentValues values = new ContentValues();
 
         values.put(DatabaseHjelper.KOLONNE_AVTALE_NAVN, navnAvtale);
         values.put(DatabaseHjelper.KOLONNE_TELEFON_NUMMER_AVTALE, telefonnummer);
         values.put(DatabaseHjelper.KOLONNE_STED, sted);
-        values.put(DatabaseHjelper.KOLONNE_DATO, String.valueOf(dato));
-        values.put(DatabaseHjelper.KOLONNE_TID, tid.toNanoOfDay());
+        values.put(DatabaseHjelper.KOLONNE_DATO, dato);
+        values.put(DatabaseHjelper.KOLONNE_TID, tid);
 
         long insertId = database.insert(DatabaseHjelper.TABELL_AVTALER, null,
                 values);
@@ -81,14 +81,15 @@ public class AvtaleAppDataKilde {
         return kontakt;
     }
 
+
     //Cursor til Avtale
     private Avtale cursorTilAvtale(Cursor cursor) {
         Avtale avtale = new Avtale(); //Vurdere og lage tom konstruktør?
         avtale.setAvtaleId(cursor.getLong(cursor.getColumnIndexOrThrow(
                 DatabaseHjelper.KOLONNE_AVTALE_ID)));
-        avtale.setNavnAvtale(cursor.getString(cursor.getColumnIndexOrThrow(
-                DatabaseHjelper.KOLONNE_AVTALE_NAVN)));
         avtale.setTelefonnummer(cursor.getString(cursor.getColumnIndexOrThrow(
+                DatabaseHjelper.KOLONNE_AVTALE_NAVN)));
+        avtale.setSted(cursor.getString(cursor.getColumnIndexOrThrow(
                 DatabaseHjelper.KOLONNE_TELEFON_NUMMER_AVTALE)));
         avtale.setSted(cursor.getString(cursor.getColumnIndexOrThrow(
                 DatabaseHjelper.KOLONNE_STED)));
