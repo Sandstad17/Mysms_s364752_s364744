@@ -46,8 +46,15 @@ public class KontakterActivity extends AppCompatActivity {
         kontaktArrayAdapter = new KontaktAdapter(this, kontakter);
         kontaktlista.setAdapter(kontaktArrayAdapter);
 
-
-        
+        //Slette bruker
+        Button slettKontakt = findViewById(R.id.slett);
+        String telefonnummerSlett = String.valueOf(findViewById(R.id.telefonnummerSlett));
+        slettKontakt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dataKilde.slettKontakt(telefonnummerSlett);
+            }
+        });
     }
 
     @Override

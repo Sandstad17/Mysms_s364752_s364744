@@ -134,10 +134,10 @@ public class AvtaleAppDataKilde {
 
 
     //Slette Kontakt fra Database
-    public void slettKontakt(long kontaktId) {
+    public void slettKontakt(String nummer) {
         database.delete(DatabaseHjelper.TABELL_KONTAKTER,
-                DatabaseHjelper.KOLONNE_KONTAKT_ID + " =? ", new
-                        String[]{Long.toString(kontaktId)});
+                DatabaseHjelper.KOLONNE_TELEFON_NUMMER + " =? ", new
+                        String[]{nummer});
     }
 
 
