@@ -88,14 +88,14 @@ public class AvtaleAppDataKilde {
                 DatabaseHjelper.KOLONNE_AVTALE_ID)));
         avtale.setNavnAvtale(cursor.getString(cursor.getColumnIndexOrThrow(
                 DatabaseHjelper.KOLONNE_AVTALE_NAVN)));
-        avtale.setTelefonnummer(cursor.getInt(cursor.getColumnIndexOrThrow(
+        avtale.setTelefonnummer(cursor.getString(cursor.getColumnIndexOrThrow(
                 DatabaseHjelper.KOLONNE_TELEFON_NUMMER_AVTALE)));
         avtale.setSted(cursor.getString(cursor.getColumnIndexOrThrow(
                 DatabaseHjelper.KOLONNE_STED)));
-        avtale.setDato(LocalDate.ofEpochDay(cursor.getLong(cursor.getColumnIndexOrThrow(
-                DatabaseHjelper.KOLONNE_DATO))));
-        avtale.setTid(LocalTime.parse(cursor.getString(cursor.getColumnIndexOrThrow(
-                DatabaseHjelper.KOLONNE_TID))));
+        avtale.setDato(cursor.getString(cursor.getColumnIndexOrThrow(
+                DatabaseHjelper.KOLONNE_DATO)));
+        avtale.setTid(cursor.getString(cursor.getColumnIndexOrThrow(
+                DatabaseHjelper.KOLONNE_TID)));
         return avtale;
     }
 

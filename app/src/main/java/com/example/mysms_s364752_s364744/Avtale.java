@@ -7,15 +7,15 @@ import java.util.Date;
 public class Avtale {
     private long avtaleId;
     private String navnAvtale;
-    private int telefonnummer;
+    private String telefonnummer;
     private String sted;
-    private LocalDate dato;
-    private LocalTime tid;
+    private String dato;
+    private String tid;
 
     //Konstruktør med alle parametere
 
 
-    public Avtale(long avtaleId, String navnAvtale, int telefonnummer, String sted, LocalDate dato, LocalTime tid) {
+    public Avtale(long avtaleId, String navnAvtale, String telefonnummer, String sted, String dato, String tid) {
         this.avtaleId = avtaleId;
         this.navnAvtale = navnAvtale;
         this.telefonnummer = telefonnummer;
@@ -25,7 +25,7 @@ public class Avtale {
     }
 
     //Konstruktør uten Id
-    public Avtale(String navnAvtale, int telefonnummer, String sted, LocalDate dato, LocalTime tid) {
+    public Avtale(String navnAvtale, String telefonnummer, String sted, String dato, String tid) {
         this.navnAvtale = navnAvtale;
         this.telefonnummer = telefonnummer;
         this.sted = sted;
@@ -54,11 +54,11 @@ public class Avtale {
         this.navnAvtale = navnAvtale;
     }
 
-    public int getTelefonnummer() {
+    public String getTelefonnummer() {
         return telefonnummer;
     }
 
-    public void setTelefonnummer(int telefonnummer) {
+    public void setTelefonnummer(String telefonnummer) {
         this.telefonnummer = telefonnummer;
     }
 
@@ -70,19 +70,19 @@ public class Avtale {
         this.sted = sted;
     }
 
-    public LocalDate getDato() {
+    public String getDato() {
         return dato;
     }
 
-    public void setDato(LocalDate dato) {
+    public void setDato(String dato) {
         this.dato = dato;
     }
 
-    public LocalTime getTid() {
+    public String getTid() {
         return tid;
     }
 
-    public void setTid(LocalTime tid) {
+    public void setTid(String tid) {
         this.tid = tid;
     }
 

@@ -43,10 +43,11 @@ public class NyavtaleActivity extends AppCompatActivity {
 
         //Avtale navn, sted, dato, tid og nummer
         avtaleNavnEditText = findViewById(R.id.editTextAvtaleNavn);
+        nummerEditText = findViewById(R.id.editTextTelefonnummer);
         stedEditText = findViewById(R.id.editTextSted);
         datoEditText = findViewById(R.id.editTextDato);
         tidEditText = findViewById(R.id.editTextTid);
-        nummerEditText = findViewById(R.id.editTextTelefonnummer);
+
 
         avtaler = dataKilde.finnAlleAvtaler();
         avtaleArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, avtaler);
@@ -57,12 +58,13 @@ public class NyavtaleActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String avtaleNavn = avtaleNavnEditText.getText().toString();
+                String telefonnummer = nummerEditText.getText().toString();
                 String sted = stedEditText.getText().toString();
-                LocalDate dato = LocalDate.parse(datoEditText.getText().toString());
+                String dato = datoEditText.getText().toString();
                 String tid = tidEditText.getText().toString();
                 int nummer = Integer.parseInt(nummerEditText.getText().toString());
                 if (!avtaleNavn.isEmpty() && !sted.isEmpty() && !tid.isEmpty()) {
-                    Avtale avtale = dataKilde.leggInnAvtale(avtaleNavn, nummer, sted, dato, LocalTime.parse(tid));
+                    Avtale avtale = dataKilde.leggInnAvtale(avtaleNavn, nummer, sted, dato, tid);
                     avtaleArrayAdapter.add(avtale);
                     avtaleNavnEditText.setText("");
                     stedEditText.setText("");

@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         ListView avtalelista = findViewById(R.id.avtaleliste);
 
         avtaler = dataKilde.finnAlleAvtaler();
-        avtaleArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, avtaler);
+        avtaleArrayAdapter = new AvtaleAdapter(this, avtaler);
         avtalelista.setAdapter(avtaleArrayAdapter);
     }
 
