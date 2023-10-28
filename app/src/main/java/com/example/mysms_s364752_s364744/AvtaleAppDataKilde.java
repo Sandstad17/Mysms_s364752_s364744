@@ -76,7 +76,7 @@ public class AvtaleAppDataKilde {
                 DatabaseHjelper.KOLONNE_FORNAVN)));
         kontakt.setEtternavn(cursor.getString(cursor.getColumnIndexOrThrow(
                 DatabaseHjelper.KOLONNE_ETTERNAVN)));
-        kontakt.setTelefonnummer(cursor.getInt(cursor.getColumnIndexOrThrow(
+        kontakt.setTelefonnummer(cursor.getString(cursor.getColumnIndexOrThrow(
                 DatabaseHjelper.KOLONNE_TELEFON_NUMMER)));
         return kontakt;
     }

@@ -5,10 +5,10 @@ public class Kontakt {
     private long kontaktId;
     private String fornavn;
     private String etternavn;
-    private int telefonnummer;
+    private String telefonnummer;
 
     //Konstruktør med alle parameter
-    public Kontakt(long kontaktId, String fornavn, String etternavn, int telefonnummer) {
+    public Kontakt(long kontaktId, String fornavn, String etternavn, String telefonnummer) {
         this.kontaktId = kontaktId;
         this.fornavn = fornavn;
         this.etternavn = etternavn;
@@ -16,7 +16,7 @@ public class Kontakt {
     }
 
     //Konstruktør uten Id
-    public Kontakt(String fornavn, String etternavn, int telefonnummer) {
+    public Kontakt(String fornavn, String etternavn, String telefonnummer) {
         this.fornavn = fornavn;
         this.etternavn = etternavn;
         this.telefonnummer = telefonnummer;
@@ -51,11 +51,11 @@ public class Kontakt {
         this.etternavn = etternavn;
     }
 
-    public int getTelefonnummer() {
+    public String getTelefonnummer() {
         return telefonnummer;
     }
 
-    public void setTelefonnummer(int telefonnummer) {
+    public void setTelefonnummer(String telefonnummer) {
         this.telefonnummer = telefonnummer;
     }
 }

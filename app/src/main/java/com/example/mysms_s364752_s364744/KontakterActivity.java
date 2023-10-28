@@ -43,7 +43,7 @@ public class KontakterActivity extends AppCompatActivity {
         ListView kontaktlista = findViewById(R.id.kontaktliste);
 
         kontakter = dataKilde.finnAlleKontakter();
-        kontaktArrayAdapter = new ArrayAdapter<Kontakt>(this, android.R.layout.simple_list_item_1,kontakter);
+        kontaktArrayAdapter = new KontaktAdapter(this, kontakter);
         kontaktlista.setAdapter(kontaktArrayAdapter);
 
 
