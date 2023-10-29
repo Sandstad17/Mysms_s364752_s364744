@@ -70,6 +70,19 @@ public class NykontaktActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //Bruker Knapp til tilabke navigasjon for å kunne oppdatere ListViewet i KontakterActivity automatisk.
+        //Bruker finish for å lukke nåværenede view og passe på at det IKKE blir stack.
+        Button backToKontakterButton = findViewById(R.id.tilbakeTilKontakterButton);
+        backToKontakterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Navigate back to KontakterActivity
+                Intent intent = new Intent(NykontaktActivity.this, KontakterActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     @Override
