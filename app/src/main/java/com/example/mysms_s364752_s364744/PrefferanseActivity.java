@@ -1,7 +1,11 @@
 package com.example.mysms_s364752_s364744;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,9 +23,16 @@ public class PrefferanseActivity extends AppCompatActivity {
                 intent.setAction("com.example.service.MYSIGNAL");
                 sendBroadcast(intent);
             } else {
-                // denne må lages
-                // stopPeriodicService(notifikasjoner);
+                stoppPeriodisk(notifikasjon);
             }
         });
+    }
+    public void stoppPeriodisk(View v) {
+        Intent i = new Intent(this, MinService.class);
+        PendingIntent pintent = PendingIntent.getService(this, 0, i, PendingIntent.FLAG_IMMUTABLE);
+        AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        if (alarm != null) {
+            alarm.cancel(pintent);
+        }
     }
 }

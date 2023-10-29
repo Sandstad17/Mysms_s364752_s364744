@@ -144,14 +144,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,SettPeriodiskService.class);
         this.startService(intent);
     }
-    public void stoppPeriodisk(View v) {
-        Intent i = new Intent(this, MinService.class);
-        PendingIntent pintent = PendingIntent.getService(this, 0, i, PendingIntent.FLAG_IMMUTABLE);
-        AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        if (alarm != null) {
-            alarm.cancel(pintent);
-        }
-    }
 
     private void createNotificationChannel() {
         CharSequence name = getString(R.string.channel_name);
