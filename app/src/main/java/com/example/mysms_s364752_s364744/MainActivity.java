@@ -1,6 +1,8 @@
 package com.example.mysms_s364752_s364744;
 
 import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -26,6 +28,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    String CHANNEL_ID = "MinKanal";
     private AvtaleAppDataKilde dataKilde;
     private ArrayAdapter<Avtale> avtaleArrayAdapter;
     private List<Avtale> avtaler;
@@ -44,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         IntentFilter filter = new IntentFilter("com.example.service.MITTSIGNAL");
         filter.addAction("com.example.service.MITTSIGNAL");
         this.registerReceiver(myBroadcastReceiver, filter);
+
+        createNotificationChannel();
 
         //Sjekker status på om tillatelser er gitt hvis ikke kommer det dialog med spørsmål
         if (ContextCompat.checkSelfPermission(this,
@@ -146,6 +151,18 @@ public class MainActivity extends AppCompatActivity {
         if (alarm != null) {
             alarm.cancel(pintent);
         }
+    }
+
+    private void createNotificationChannel() {
+        CharSequence name = getString(R.string.channel_name);
+        String description = getString(R.string.channel_description);
+        int importance = NotificationManager.IMPORTANCE_DEFAULT;
+        NotificationChannel channel = new
+                NotificationChannel(CHANNEL_ID, name, importance);
+        channel.setDescription(description);
+        NotificationManager notificationManager =
+                getSystemService(NotificationManager.class);
+        notificationManager.createNotificationChannel(channel);
     }
 
 }

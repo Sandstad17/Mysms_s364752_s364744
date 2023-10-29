@@ -9,6 +9,7 @@
         android:name="android.hardware.telephony"
         android:required="false" />
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
@@ -37,7 +38,7 @@
             android:name=".SettPeriodiskService"
             android:enabled="true"
             android:exported="true" />
-
+        <activity android:name=".Resultat"/>
         <activity android:name=".KontakterActivity"/>
         <activity android:name=".NyavtaleActivity"/>
         <activity android:name=".NykontaktActivity"/>
