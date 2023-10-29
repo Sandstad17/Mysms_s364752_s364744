@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 //Preferanse til å sette standarmelding, tidspunkt og skru av og på service
 public class PrefferanseActivity extends AppCompatActivity {
@@ -23,7 +24,7 @@ public class PrefferanseActivity extends AppCompatActivity {
             //Service er på
             if (b) {
                 Intent intent = new Intent();
-                intent.setAction("com.example.service.MYSIGNAL");
+                intent.setAction("com.example.service.SettPeriodisk");
                 sendBroadcast(intent);
 
                 //Sette verdier som tidspunkt og standardmelding til preferences.

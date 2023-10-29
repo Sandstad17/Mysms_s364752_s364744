@@ -157,4 +157,8 @@ public class MainActivity extends AppCompatActivity {
         notificationManager.createNotificationChannel(channel);
     }
 
+    public void stoppService(View v) {
+        Intent i = new Intent(this, MinService.class);
+        stopService(i);
+    }
 }

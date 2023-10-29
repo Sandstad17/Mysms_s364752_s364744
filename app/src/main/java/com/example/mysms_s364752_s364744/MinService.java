@@ -45,7 +45,7 @@ public class MinService extends Service {
                 .setContentText("Tekst")
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
- .setContentIntent(pIntent).build();
+                .setContentIntent(pIntent).build();
         notifikasjon.flags |= Notification.FLAG_AUTO_CANCEL;
         notificationManager.notify(88, notifikasjon);
         return super.onStartCommand(intent, flags, startId);

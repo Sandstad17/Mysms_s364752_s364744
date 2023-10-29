@@ -6,5 +6,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.service.Resultat"
-    android:background="#0000FF">
+    android:background="#49C5FF">
 </LinearLayout>
