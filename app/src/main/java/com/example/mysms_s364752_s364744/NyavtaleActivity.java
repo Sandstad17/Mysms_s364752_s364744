@@ -1,4 +1,5 @@
 package com.example.mysms_s364752_s364744;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -70,6 +71,16 @@ public class NyavtaleActivity extends AppCompatActivity {
                     tidEditText.setText("");
                     nummerEditText.setText("");
                 }
+            }
+        });
+
+
+        Button tilAvtaler = findViewById(R.id.tilAvtaler);
+        Intent avtaler = new Intent(this, MainActivity.class);
+        tilAvtaler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(avtaler);
             }
         });
 
