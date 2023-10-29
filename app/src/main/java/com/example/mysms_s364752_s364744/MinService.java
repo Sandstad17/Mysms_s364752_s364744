@@ -25,6 +25,15 @@ public class MinService extends Service {
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
+        //Sjekke database for avtaler
+        //Hente ut telefonnummer som har avtale
+
+        //Hente Standardmelding
+
+        //Sende meldingen til person basert på tid
+
+
         Toast.makeText(getApplicationContext(), "I MinService"
                 , Toast.LENGTH_SHORT).show();
         NotificationManager notificationManager = (NotificationManager)
