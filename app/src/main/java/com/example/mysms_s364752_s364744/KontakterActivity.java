@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,11 +49,16 @@ public class KontakterActivity extends AppCompatActivity {
 
         //Slette bruker
         Button slettKontakt = findViewById(R.id.slett);
-        String telefonnummerSlett = String.valueOf(findViewById(R.id.telefonnummerSlett));
+        EditText telefonnummerSlettEditText = findViewById(R.id.telefonnummerSlett); // Retrieve the EditText
         slettKontakt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dataKilde.slettKontakt(telefonnummerSlett);
+                String telefonnummerSlett = telefonnummerSlettEditText.getText().toString(); // Get the text from the EditText
+                dataKilde.slettKontakt(telefonnummerSlett); // Pass the phone number to the deletion method
+                // Optionally clear the EditText after deletion if needed:
+                telefonnummerSlettEditText.setText("");
+                // Notify the adapter to refresh the list view
+                kontaktArrayAdapter.notifyDataSetChanged();
             }
         });
     }
