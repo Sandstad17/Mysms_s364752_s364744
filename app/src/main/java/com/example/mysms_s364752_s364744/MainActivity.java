@@ -1,6 +1,11 @@
 package com.example.mysms_s364752_s364744;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        BroadcastReceiver myBroadcastReceiver = new MinBroadcastReceiver();
+        IntentFilter filter = new IntentFilter("com.example.service.MITTSIGNAL");
+        filter.addAction("com.example.service.MITTSIGNAL");
+        this.registerReceiver(myBroadcastReceiver, filter);
 
         //Sjekker status på om tillatelser er gitt hvis ikke kommer det dialog med spørsmål
         if (ContextCompat.checkSelfPermission(this,
@@ -118,4 +128,24 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    //Ved et eventuelt klikk på send broadcast/eller aktivering
+    public void sendBroadcast(View v){
+        Intent intent = new Intent();
+        intent.setAction("com.example.service.MITTSIGNAL");
+        sendBroadcast(intent);
+    }
+
+    public void settPeriodisk(View v) {
+        Intent intent = new Intent(this,SettPeriodiskService.class);
+        this.startService(intent);
+    }
+    public void stoppPeriodisk(View v) {
+        Intent i = new Intent(this, MinService.class);
+        PendingIntent pintent = PendingIntent.getService(this, 0, i, PendingIntent.FLAG_IMMUTABLE);
+        AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        if (alarm != null) {
+            alarm.cancel(pintent);
+        }
+    }
+
 }
